@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addTodolist, deleteTodolist, editTodolist } from "./store/action";
 import { selectorTodolist } from "./store/selector";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "../src/App.css";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -10,9 +11,13 @@ const App = () => {
   const [editMode, setEditMode] = useState(false);
   const [editItem, setEditItem] = useState({ id: null, name: "" });
   const todolist = useSelector(selectorTodolist);
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
   const handleDelete = (id, name) => {
     dispatch(deleteTodolist(id, name));
+  };
+  const handleToggleDarkMode = () => {
+    setIsDarkMode(!isDarkMode);
   };
   //////////////////////////////////////
   const handleEdit = (id, name) => {
@@ -47,8 +52,21 @@ const App = () => {
     }
   };
   return (
-    <div className="container my-5">
-      <h1 className="text-center mb-5">Todo List by Redux </h1>
+    <div
+      // Thêm className cho các thành phần phù hợp với chế độ sáng/tối
+      className={`container my-5 ${
+        isDarkMode ? "bg-dark text-light" : "bg-light text-dark"
+      }`}
+    >
+      <h1 className="text-center mb-5">Todo List by Redux</h1>
+
+      {/* Thêm nút để thay đổi chế độ sáng/tối */}
+      <div className="d-flex justify-content-end mb-3">
+        <button className="btn btn-secondary" onClick={handleToggleDarkMode}>
+          {isDarkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
+        </button>
+      </div>
+
       <form className="form">
         <div className="form-group">
           <label htmlFor="input-todo">Name:</label>
@@ -81,7 +99,12 @@ const App = () => {
           </button>
         )}
       </form>
-      <ul className="list-group todolist mt-3">
+      <ul
+        // Thêm className cho các thành phần phù hợp với chế độ sáng/tối
+        className={`list-group todolist mt-3 ${
+          isDarkMode ? "bg-secondary" : ""
+        }`}
+      >
         {todolist.map((item) => (
           <li
             key={item.id}

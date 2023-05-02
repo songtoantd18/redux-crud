@@ -1,112 +1,71 @@
-.form {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 20px;
-  background-color: #fff;
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+/* Điều chỉnh font-size cho danh sách công việc trên màn hình điện thoại */
+@media only screen and (max-width: 600px) {
+  .todolist {
+    font-size: 14px;
+  }
 }
 
-.form label {
-  font-weight: bold;
-  margin-bottom: 10px;
-  font-size: 1.2rem;
-  color: #333;
+/* Điều chỉnh padding cho form-group trên màn hình máy tính bảng */
+@media only screen and (max-width: 768px) {
+  .form-group {
+    padding: 10px;
+  }
 }
 
-.form input[type="text"] {
-  padding: 10px;
-  margin-bottom: 10px;
-  font-size: 1.2rem;
-  border: none;
-  border-radius: 5px;
-  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+/* Điều chỉnh margin cho nút trên màn hình máy tính để bàn */
+@media only screen and (min-width: 992px) {
+  .btn {
+    margin: 10px;
+  }
 }
 
-.form button {
-  background-color: green;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  margin-top: 10px;
-  cursor: pointer;
-  font-size: 1.2rem;
-  border-radius: 5px;
-  transition: opacity 0.2s ease-in-out;
+/* Điều chỉnh font-size và màu sắc cho tiêu đề trên màn hình máy tính để bàn */
+@media only screen and (min-width: 1200px) {
+  h1 {
+    font-size: 24px;
+    color: #00ff00;
+  }
+}
+/* ////////////////// */
+
+/* CSS cho chế độ sáng */
+.container,
+.form-control,
+.btn-primary,
+.btn-info,
+.btn-warning {
+  background-color: #f8f9fa; /* màu nền */
+  color: #212529; /* màu chữ */
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2); /* thêm bóng cho phần tử */
+  transition: all 0.5s ease; /* thêm animation */
 }
 
-.form button:hover {
-  opacity: 0.8;
+.btn-primary,
+.btn-info {
+  border-color: #212529; /* màu viền */
 }
+
+/* CSS cho chế độ tối */
+.bg-dark,
 .todolist {
-  margin: 0;
-  padding: 0;
+  background-color: #212529; /* màu nền */
+  color: #00ff00; /* màu chữ */
+  transition: all 01s ease; /* thêm animation */
 }
 
-.todolist li {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #fff;
-  padding: 20px;
-  margin-bottom: 10px;
-  border-radius: 5px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease-in-out;
+.btn-secondary,
+.btn-danger,
+.btn-warning {
+  background-color: #212529; /* màu nền */
+  color: #f8f9fa; /* màu chữ */
+  border-color: #f8f9fa; /* màu viền */
+  box-shadow: 0 1px 4px rgba(248, 249, 250, 0.2); /* thêm bóng cho phần tử */
+  transition: all 01s ease; /* thêm animation */
 }
 
-.todolist li:hover {
-  transform: translateY(-5px);
-}
-
-.todolist li button {
-  border: none;
-  background-color: red;
-  padding: 5px 10px;
-  margin-left: 10px;
-  color: white;
-  cursor: pointer;
-  font-size: 1.2rem;
-  border-radius: 5px;
-  transition: opacity 0.2s ease-in-out;
-}
-
-.todolist li button:hover {
-  opacity: 0.8;
-}
-
-.btn-edit,
-.btn-cancel {
-  background-color: yellow;
-  color: black;
-  margin-left: 10px;
-  font-size: 1.2rem;
-  cursor: pointer;
-  border: none;
-  border-radius: 5px;
-  transition: opacity 0.2s ease-in-out;
-}
-
-.btn-edit:hover,
-.btn-cancel:hover {
-  opacity: 0.8;
-}
-
-.btn-save,
-.btn-add {
-  background-color: green;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  margin-top: 10px;
-  cursor: pointer;
-  font-size: 1.2rem;
-  border-radius: 5px;
-  transition: opacity 0.2s ease-in-out;
-}
-
-.btn-save:hover,
-.btn-add:hover {
-  opacity: 0.8;
+.btn-secondary:hover,
+.btn-danger:hover,
+.btn-warning:hover {
+  background-color: #000000; /* màu nền khi hover */
+  color: #f8f9fa; /* màu chữ */
 }
