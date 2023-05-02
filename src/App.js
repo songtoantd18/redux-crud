@@ -21,6 +21,7 @@ const App = () => {
   };
   //////////////////////////////////////
   const handleEdit = (id, name) => {
+    console.log("1:", 1);
     setEditMode(true);
     setEditItem({ id: id, name: name });
     setInputValue(name);
@@ -119,12 +120,14 @@ const App = () => {
                     : "btn btn-info mr-2"
                 }
                 onClick={() => handleEdit(item.id, item.name)}
+                disabled={editMode && editItem.id === item.id}
               >
-                {editMode && editItem.id === item.id ? "Cancel" : "Edit"}
+                Edit
               </button>
               <button
                 className="btn btn-danger"
                 onClick={() => handleDelete(item.id, item.name)}
+                disabled={editMode && editItem.id === item.id}
               >
                 Delete
               </button>
